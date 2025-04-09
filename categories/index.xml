@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on </title>
-    <link>https://bofh.dev/categories/</link>
+    <link>https://wverac.github.io/wverac/categories/</link>
     <description>Recent content in Categories on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>hi@billy.sh (BOFH)</managingEditor>
     <webMaster>hi@billy.sh (BOFH)</webMaster>
     <lastBuildDate>Tue, 08 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://bofh.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wverac.github.io/wverac/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>General</title>
-      <link>https://bofh.dev/categories/general/</link>
+      <link>https://wverac.github.io/wverac/categories/general/</link>
       <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><author>hi@billy.sh (BOFH)</author>
-      <guid>https://bofh.dev/categories/general/</guid>
+      <guid>https://wverac.github.io/wverac/categories/general/</guid>
       <description></description>
     </item>
     <item>
       <title>Tester</title>
-      <link>https://bofh.dev/categories/tester/</link>
+      <link>https://wverac.github.io/wverac/categories/tester/</link>
       <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><author>hi@billy.sh (BOFH)</author>
-      <guid>https://bofh.dev/categories/tester/</guid>
+      <guid>https://wverac.github.io/wverac/categories/tester/</guid>
       <description></description>
     </item>
   </channel>
