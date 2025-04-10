@@ -116,7 +116,7 @@ What happens if you encrypt your home-lab (without a monitor) or a remote server
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -N <span style="color:#e6db74">&#34;&#34;</span> -f /etc/secrets/initrd/ssh_host_rsa_key
 </span></span></code></pre></div><p><code>postCommands</code> is just for the laziness of not typing the command manually</p>
 <p>Now you can ping your server and when you got a response:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh root@192.168.0.123 -p <span style="color:#ae81ff">31337</span> -i ~/.ssh/id_ed25519
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh root@192.168.1.123 -p <span style="color:#ae81ff">31337</span> -i ~/.ssh/id_ed25519
 </span></span></code></pre></div><p>Enter your password&hellip;<br>
 Done, disk unlocked</p>
 <p>Happy hacking!</p>
