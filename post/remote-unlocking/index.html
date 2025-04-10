@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>
+Remote unlocking | BOFH
+</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content=""
+/>
+
+<meta name="generator" content="Hugo 0.145.0">
+
+
+<link rel="canonical" href="https://blog.billy.sh/post/remote-unlocking/" />  
+<link href="/css/style.min.7d63417984ed8fed032ecdfb8e571a9663f6cf20a48a8f6b4d5a9b32e178ffe7.css" rel="stylesheet" />
+
+
+
+
+</head>
+
+<body>
+
+    <div class="flexWrapper">
+        <header class="headerWrapper">
+    <div class="header">
+        <div>
+            <a class="terminal" href="/">
+                <span>billy@nebuchadnezzar ~ $</span>
+            </a>
+        </div>
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <nav class="headerLinks">
+            <ul>
+                
+                <li>
+                    <a href="https://blog.billy.sh/about" title="" >
+                        ~/about</a>
+                </li>
+                
+                <li>
+                    <a href="https://blog.billy.sh/blog" title="" >
+                        ~/blog</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <main class="main">
+                
+<div class="postWrapper">
+    <h1>Remote unlocking</h1>
+    
+    
+    <section class="postMetadata">
+        <dl>
+            
+                
+<dt>tags</dt>
+<dd><span></span>
+    <a href="/tags/hacks/">#Hacks</a><span></span>
+    <a href="/tags/nixos/">#Nixos</a><span></span>
+    <a href="/tags/security/">#Security</a></dd>
+            
+            
+            
+                
+<dt>categories</dt>
+<dd><span></span>
+    <a href="/categories/nixos/">Nixos</a></dd>
+            
+            
+                <dt>published</dt>
+                
+                <dd><time datetime="2025-04-10">April 10, 2025</time></dd>
+            
+            
+        </dl>
+    </section>
+    
+    <div>
+        <p>When you have the <strong>good habit</strong> of encrypting <strong>every</strong> disk you use, it&rsquo;s not always as easy as entering the password or unlocking it with a physical device.<br>
+What happens if you encrypt your home-lab (without a monitor) or a remote server that you don&rsquo;t have access to?</p>
+<p>Well we need early access to the server, <a href="https://matt.ucc.asn.au/dropbear/dropbear.html">Dropbear</a> to the rescue, installing that &ldquo;<em>mini ssh server</em>&rdquo; inside <strong>initrd</strong> does the trick.</p>
+<p>Basically, we need:</p>
+<ul>
+<li>Have the SSH keys on our remote server (obviously).</li>
+<li>Configure a different port than the default for SSH (believe me, it&rsquo;s easier for troubleshooting).</li>
+<li>Load the driver for our network device (we&rsquo;re in the <strong>initrd</strong>).</li>
+<li>Know the IP of our server.</li>
+</ul>
+<p>And that&rsquo;s it.</p>
+<p>This is a practical example of a server within my home-lab</p>
+<p>My <a href="https://nixos.org/">NixOS</a> <a href="https://github.com/wverac/sysbofh/blob/main/modules/nixos/dropbear.nix">module</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{<span style="color:#f92672">...</span>}: {
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>kernelParams <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;ip=dhcp&#34;</span>];
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>initrd <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    availableKernelModules <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;r8169&#34;</span>];
+</span></span><span style="display:flex;"><span>    systemd<span style="color:#f92672">.</span>users<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>shell <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/bin/cryptsetup-askpass&#34;</span>;
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>      ssh <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>        port <span style="color:#f92672">=</span> <span style="color:#ae81ff">31337</span>;
+</span></span><span style="display:flex;"><span>        authorizedKeys <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOD+PjILkShGsDvqChmZzVzDbExoENsKlsPEqHxnr4PN wv@linux.com&#34;</span>];
+</span></span><span style="display:flex;"><span>        hostKeys <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;/etc/secrets/initrd/ssh_host_rsa_key&#34;</span>];
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>      postCommands <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#39;cryptsetup-askpass&#39; &gt;&gt; /root/.profile
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Get your driver with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>nix shell nixpkgs<span style="color:#75715e">#inxi -c inxi -n</span>
+</span></span></code></pre></div><p>SSH Keys:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /etc/secrets/initrd/
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -N <span style="color:#e6db74">&#34;&#34;</span> -f /etc/secrets/initrd/ssh_host_rsa_key
+</span></span></code></pre></div><p><code>postCommands</code> is just for the laziness of not typing the command manually</p>
+<p>Now you can ping your server and when you got a response:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh root@192.168.0.123 -p <span style="color:#ae81ff">31337</span> -i ~/.ssh/id_ed25519
+</span></span></code></pre></div><p>Enter your password&hellip;<br>
+Done, disk unlocked</p>
+<p>Happy hacking!</p>
+
+    </div>
+</div>
+
+            </main>
+        </div>
+
+
+        <footer class="footer">
+    
+        <span>© 2025 William Vera</span>
+    
+</footer>
+    </div>
+
+</body>
+
+</html>
