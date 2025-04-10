@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hacks on </title>
-    <link>https://blog.billy.sh/tags/hacks/</link>
-    <description>Recent content in Hacks on </description>
+    <title>Bofh on </title>
+    <link>https://blog.billy.sh/categories/bofh/</link>
+    <description>Recent content in Bofh on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>hi@billy.sh (BOFH)</managingEditor>
     <webMaster>hi@billy.sh (BOFH)</webMaster>
     <lastBuildDate>Thu, 10 Apr 2025 01:00:44 -0500</lastBuildDate>
-    <atom:link href="https://blog.billy.sh/tags/hacks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.billy.sh/categories/bofh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Remote unlocking</title>
       <link>https://blog.billy.sh/post/remote-unlocking/</link>
