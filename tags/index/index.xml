@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Index on </title>
-    <link>https://wverac.github.io/wverac/tags/index/</link>
+    <link>https://blog.billy.sh/tags/index/</link>
     <description>Recent content in Index on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>hi@billy.sh (BOFH)</managingEditor>
     <webMaster>hi@billy.sh (BOFH)</webMaster>
     <lastBuildDate>Tue, 08 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://wverac.github.io/wverac/tags/index/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.billy.sh/tags/index/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Posts</title>
-      <link>https://wverac.github.io/wverac/post/</link>
+      <link>https://blog.billy.sh/post/</link>
       <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><author>hi@billy.sh (BOFH)</author>
-      <guid>https://wverac.github.io/wverac/post/</guid>
+      <guid>https://blog.billy.sh/post/</guid>
       <description></description>
     </item>
   </channel>

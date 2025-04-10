@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://wverac.github.io/wverac/</loc>
+    <loc>https://blog.billy.sh/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/tags/blog/</loc>
+    <loc>https://blog.billy.sh/tags/blog/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/categories/</loc>
+    <loc>https://blog.billy.sh/categories/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/post/first-post/</loc>
+    <loc>https://blog.billy.sh/post/first-post/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/categories/general/</loc>
+    <loc>https://blog.billy.sh/categories/general/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/tags/index/</loc>
+    <loc>https://blog.billy.sh/tags/index/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/tags/markdown/</loc>
+    <loc>https://blog.billy.sh/tags/markdown/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/tags/nixos/</loc>
+    <loc>https://blog.billy.sh/tags/nixos/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/post/</loc>
+    <loc>https://blog.billy.sh/post/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/tags/</loc>
+    <loc>https://blog.billy.sh/tags/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/categories/tester/</loc>
+    <loc>https://blog.billy.sh/categories/tester/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wverac.github.io/wverac/about/</loc>
+    <loc>https://blog.billy.sh/about/</loc>
     <lastmod>2024-04-08T00:00:00+00:00</lastmod>
   </url>
 </urlset>
