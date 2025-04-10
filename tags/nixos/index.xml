@@ -8,15 +8,8 @@
     <language>en-us</language>
     <managingEditor>hi@billy.sh (BOFH)</managingEditor>
     <webMaster>hi@billy.sh (BOFH)</webMaster>
-    <lastBuildDate>Thu, 10 Apr 2025 01:00:44 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 08 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.billy.sh/tags/nixos/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Remote unlocking</title>
-      <link>https://blog.billy.sh/post/remote-unlocking/</link>
-      <pubDate>Thu, 10 Apr 2025 01:00:44 -0500</pubDate><author>hi@billy.sh (BOFH)</author>
-      <guid>https://blog.billy.sh/post/remote-unlocking/</guid>
-      <description>&lt;p&gt;When you have the &lt;strong&gt;good habit&lt;/strong&gt; of encrypting &lt;strong&gt;every&lt;/strong&gt; disk you use, it&amp;rsquo;s not always as easy as entering the password or unlocking it with a physical device.&lt;br&gt;&#xA;What happens if you encrypt your home-lab (without a monitor) or a remote server that you don&amp;rsquo;t have access to?&lt;/p&gt;&#xA;&lt;p&gt;Well we need early access to the server, &lt;a href=&#34;https://matt.ucc.asn.au/dropbear/dropbear.html&#34;&gt;Dropbear&lt;/a&gt; to the rescue, installing that &amp;ldquo;&lt;em&gt;mini ssh server&lt;/em&gt;&amp;rdquo; inside &lt;strong&gt;initrd&lt;/strong&gt; does the trick.&lt;/p&gt;&#xA;&lt;p&gt;Basically, we need:&lt;/p&gt;</description>
-    </item>
     <item>
       <title>First Post</title>
       <link>https://blog.billy.sh/post/first-post/</link>
